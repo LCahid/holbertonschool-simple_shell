@@ -1,5 +1,5 @@
 # Basic Shell
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fgifer.com%2Fen%2FR7iJ&psig=AOvVaw3V8xiYWSPDGhqHiqGCi1HF&ust=1703856934230000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOC8yvCfsoMDFQAAAAAdAAAAABAy)
+![](https://i.gifer.com/R7iJ.gif)
 
 ## Overview
 Basic Shell is a simple, interactive command line interpreter that provides a user interface to access the operating system's services. It is designed to execute commands and manage your files and processes.
@@ -14,8 +14,8 @@ Basic Shell is a simple, interactive command line interpreter that provides a us
 
 Basic Shell supports the following custom commands:
 
-- 'exit': The command causes the shell or program to terminate. If performed within an interactive command shell, the user is logged out of their current session, and/or user's current console or terminal connection is disconnected. Typically an optional exit code can be specified, which is typically a simple integer value that is then returned to the parent process.
-- 'env': The env command allows you to display your current environment or run a specified command in a changed environment.
+- `exit`: The command causes the shell or program to terminate. If performed within an interactive command shell, the user is logged out of their current session, and/or user's current console or terminal connection is disconnected. Typically an optional exit code can be specified, which is typically a simple integer value that is then returned to the parent process.
+- `env`: The env command allows you to display your current environment or run a specified command in a changed environment.
 
 ## Contributing
 
