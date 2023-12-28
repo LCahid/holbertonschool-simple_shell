@@ -24,6 +24,7 @@ int main(int argc, char **argv)
 		fcommand = get_command();
 		if (fcommand == NULL)
 		{
+			printf("\n");
 			break;
 		}
 		if (stat(fcommand[0], &st) == -1)
