@@ -1,5 +1,5 @@
 # Basic Shell
-![](https://i.gifer.com/R7iJ.gif)
+![shell](https://i.gifer.com/R7iJ.gif)
 
 ## Overview
 Basic Shell is a simple, interactive command line interpreter that provides a user interface to access the operating system's services. It is designed to execute commands and manage your files and processes.
