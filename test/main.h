@@ -10,6 +10,6 @@
 #include <sys/stat.h>
 
 extern char **environ;
-char **get_command(void);
+char **get_command(char **);
 
 #endif
