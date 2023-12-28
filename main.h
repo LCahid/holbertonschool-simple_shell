@@ -9,7 +9,4 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-extern char **environ;
-char **get_command(void);
-
 #endif
