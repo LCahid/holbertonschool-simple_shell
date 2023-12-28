@@ -9,11 +9,11 @@
 int main(int argc, char **argv)
 {
 	char **fcommand, *buf;
-	size_t n = 0;
 	pid_t pid;
 	struct stat st;
 	int status;
 
+	(void)argc;
 	while (1)
 	{
 		status = isatty(STDIN_FILENO);
