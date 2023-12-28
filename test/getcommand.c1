@@ -45,14 +45,17 @@ char **get_command(char **buf)
 	}
 	for (i = 1; i < k; i++)
 	{
-		if ((*buf)[i - 1] == ' ' || (*buf)[i - 1] == '\t' || (*buf)[i - 1] == '\n')
-			(*buf)[i - 1] = '\0';
-		else if ((*buf)[i - 1] == '\0')
-			continue;
-		else
+		if ((((*buf)[i - 1] == ' ' ||
+						(*buf)[i - 1] == '\0') &&
+					((*buf)[i] != ' ' 
+					 && (*buf)[i] != '\n')) ||
+				(i == 1 && (*buf)[i - 1] != ' '))
 		{
-			array[l] = *buf + i - 1;
-			while((*buf)[i] != ' ' && (*buf)[i] != '\t' && (*buf)[i] != '\n')
+			if ((*buf)[i - 1] == ' ' || (*buf)[i - 1] == '\0')
+				array[l] = *buf + i;
+			else
+				array[l] = *buf + i - 1;
+			while ((*buf)[i] != ' ' && i < k && (*buf)[i] != '\n')
 				i++;
 			(*buf)[i] = '\0';
 			l++;

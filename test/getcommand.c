@@ -36,8 +36,6 @@ char **get_command(char **buf)
 		perror("Failure to read line");
 		return (NULL);
 	}
-	if (n != k)
-		*buf = realloc(*buf, k);
 	array = malloc(sizeof(char *) * (arg_counter(*buf, k) + 1));
 	if (array == NULL)
 	{
@@ -47,16 +45,14 @@ char **get_command(char **buf)
 	}
 	for (i = 1; i < k; i++)
 	{
-		if ((((*buf)[i - 1] == ' ' ||
-						(*buf)[i - 1] == '\0') &&
-					(*buf)[i] != ' ') ||
-				(i == 1 && (*buf)[i - 1] != ' '))
+		if ((*buf)[i - 1] == ' ' || (*buf)[i - 1] == '\t' || (*buf)[i - 1] == '\n')
+			(*buf)[i - 1] = '\0';
+		else if ((*buf)[i - 1] == '\0')
+			continue;
+		else
 		{
-			if ((*buf)[i - 1] == ' ' || (*buf)[i - 1] == '\0')
-				array[l] = *buf + i;
-			else
-				array[l] = *buf + i - 1;
-			while ((*buf)[i] != ' ' && i < k && (*buf)[i] != '\n')
+			array[l] = *buf + i - 1;
+			while((*buf)[i] != ' ' && (*buf)[i] != '\t' && (*buf)[i] != '\n')
 				i++;
 			(*buf)[i] = '\0';
 			l++;

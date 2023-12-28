@@ -9,11 +9,11 @@
 int main(int argc, char **argv)
 {
 	char **fcommand, *buf;
-	size_t n = 0;
 	pid_t pid;
 	struct stat st;
 	int status;
 
+	(void)argc;
 	while (1)
 	{
 		status = isatty(STDIN_FILENO);
@@ -25,7 +25,8 @@ int main(int argc, char **argv)
 		if (fcommand == NULL)
 		{
 			free(buf);
-			printf("\n");
+			if (status)
+				printf("\n");
 			break;
 		}
 		if (stat(fcommand[0], &st) == -1)
