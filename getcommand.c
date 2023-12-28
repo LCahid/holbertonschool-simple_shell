@@ -12,7 +12,7 @@ int arg_counter(char *buf, int size)
 
 	for (i = 1; i < size; i++)
 		count += ((buf[i - 1] == ' ' &&
-					buf[i] != ' ') ||
+					(buf[i] != ' ' && buf[i] != '\n')) ||
 				(i == 1 &&
 				 buf[i - 1] != ' '));
 	return (count);
@@ -25,7 +25,7 @@ int arg_counter(char *buf, int size)
 char **get_command(char **buf)
 {
 	char **array;
-	size_t n = 1, k, i, l = 0;
+	size_t n = 1, k, i, l = 0, count;
 
 	*buf = malloc(n);
 	k = getline(buf, &n, stdin);
@@ -36,7 +36,10 @@ char **get_command(char **buf)
 		perror("Failure to read line");
 		return (NULL);
 	}
-	array = malloc(sizeof(char *) * (arg_counter(*buf, k) + 1));
+	count = arg_counter(*buf, k);
+	if (!count)
+		return (NULL);
+	array = malloc(sizeof(char *) * (count + 1));
 	if (array == NULL)
 	{
 		free(*buf);
