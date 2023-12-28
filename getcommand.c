@@ -55,7 +55,7 @@ char **get_command(char **buf)
 		else
 		{
 			array[l] = *buf + i - 1;
-			while((*buf)[i] != ' ' && (*buf)[i] != '\t' && (*buf)[i] != '\n')
+			while ((*buf)[i] != ' ' && (*buf)[i] != '\t' && (*buf)[i] != '\n')
 				i++;
 			(*buf)[i] = '\0';
 			l++;
