@@ -12,10 +12,15 @@ int main(int argc, char **argv)
 	size_t n = 0;
 	pid_t pid;
 	struct stat st;
+	int status;
 
 	while (1)
 	{
-		printf("#cisfun$ ");
+		status = isatty(STDIN_FILENO);
+		if (status)
+			printf("#cisfun$ ");
+		else
+			errno = 0;
 		fcommand = get_command();
 		if (fcommand == NULL)
 		{

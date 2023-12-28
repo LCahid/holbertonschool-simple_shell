@@ -8,34 +8,36 @@
   */
 int main(int argc, char **argv)
 {
-	char *command, **fcommand = malloc(sizeof(char *) * 2);
-	size_t n = 0, k;
+	char **fcommand;
+	size_t n = 0;
 	pid_t pid;
 	struct stat st;
+	int status;
 
-	while(1)
+	while (1)
 	{
-		printf("#cisfun$ ");
-		k = getline(&command, &n, stdin);
-		if(k == (size_t)(-1))
+		status = isatty(STDIN_FILENO);
+		if (status)
+			printf("#cisfun$ ");
+		else
+			errno = 0;
+		fcommand = get_command();
+		if (fcommand == NULL)
 		{
-			perror("Failure to read line");
 			break;
 		}
-		command[k] = '\0';
-		if (stat(command, &st) == -1)
+		if (stat(fcommand[0], &st) == -1)
 		{
-			printf("%s\n", command);
 			perror(argv[0]);
 			continue;
 		}
 		pid = fork();
 		if (pid == 0)
 		{
-			fcommand = (char *[]){command, NULL};
-			execve(command, fcommand, NULL);
+			execve(fcommand[0], fcommand, environ);
 		}
 		else
 			wait(NULL);
 	}
+	return (0);
 }
