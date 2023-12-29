@@ -1,6 +1,6 @@
 #ifndef MAINH
 #define MAINH
-#define PATH "PATH"
+#define PATH "PATH="
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
