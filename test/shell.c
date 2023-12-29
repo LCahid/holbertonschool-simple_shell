@@ -31,22 +31,18 @@ int main(int argc, char **argv)
 		}
 		if (stat(fcommand[0], &st) == -1)
 		{
-			perror(argv[0]);
-			free(buf);
-			free(fcommand);
+			if (!strcmp("env", fcommand[0]))
+				print_env();
+			else
+				perror(argv[0]), free(buf), free(fcommand);
 			continue;
 		}
 		pid = fork();
 		if (pid == 0)
-		{
 			execve(fcommand[0], fcommand, environ);
-		}
 		else
-		{
 			wait(NULL);
-		}
-		free(buf);
-		free(fcommand);
+		free(buf), free(fcommand);
 	}
 	return (0);
 }

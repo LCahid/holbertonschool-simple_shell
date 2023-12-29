@@ -1,6 +1,6 @@
 #ifndef MAINH
 #define MAINH
-
+#define PATH "PATH"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,5 +11,7 @@
 
 extern char **environ;
 char **get_command(char **);
+char **get_path(char **);
+void print_env(void);
 
 #endif
