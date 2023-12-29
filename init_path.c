@@ -7,10 +7,14 @@
   */
 void find_path(char **var, int *i, int *j)
 {
+	int len = strlen(PATH);
+
 	while (var[*i])
 	{
 		while (var[*i][*j])
 		{
+			if (*j > len)
+				break;
 			if (var[*i][*j] == '=')
 				return;
 			if (var[*i][*j] == PATH[*j])
