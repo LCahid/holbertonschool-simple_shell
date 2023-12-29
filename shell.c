@@ -1,5 +1,23 @@
 #include "main.h"
 /**
+  * main_helper - helper function for main
+  * @fcommand: tokenaized user command
+  * @status: status about echo
+  * @buf: user input
+  * Return: if break needed 1 else 0
+  */
+int main_helper(char **fcommand, int status, char *buf)
+{
+	if (fcommand == NULL)
+	{
+		free(buf), free_path();
+		if (status)
+			printf("\n");
+		return (1);
+	}
+	return (0);
+}
+/**
   * main - shell start function
   * @argv: argument variables
   * @argc: argument count
@@ -16,13 +34,8 @@ int main(int argc, char **argv, char **env)
 	{
 		status = isatty(STDIN_FILENO), print_prompt(status);
 		fcommand = get_command(&buf);
-		if (fcommand == NULL)
-		{
-			free(buf);
-			if (status)
-				printf("\n");
+		if (main_helper(fcommand, status, buf))
 			break;
-		}
 		if (!strcmp(fcommand[0], " "))
 		{
 			free(buf), free(fcommand[0]), free(fcommand);
@@ -39,7 +52,8 @@ int main(int argc, char **argv, char **env)
 		{
 			dprintf(2, "%s: 1: %s: not found\n", argv[0], command);
 			free(buf), free(fcommand), free(command), errno = 0;
-			exit(127);
+			if (!status)
+				free_path(), exit(127);
 			continue;
 		}
 		exec_c(fcommand), free(buf);
@@ -47,6 +61,5 @@ int main(int argc, char **argv, char **env)
 			free(fcommand[0]), lk = 0;
 		free(fcommand), free(command);
 	}
-	free_path();
 	return (0);
 }
