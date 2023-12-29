@@ -45,6 +45,8 @@ char **get_path(char **env)
 		return (NULL);
 	j++;
 	buf = strtok(env[i] + j, ":");
+	if (!buf)
+		return (NULL);
 	array[k++] = strdup(buf);
 	while (1)
 	{
@@ -73,6 +75,8 @@ void free_path(void)
 {
 	int i = 0;
 
+	if (!path_var)
+		return;
 	while (path_var[i])
 		free(path_var[i++]);
 	free(path_var);

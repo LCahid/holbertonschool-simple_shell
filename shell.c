@@ -39,6 +39,7 @@ int main(int argc, char **argv, char **env)
 		{
 			dprintf(2, "%s: 1: %s: not found\n", argv[0], command);
 			free(buf), free(fcommand), free(command), errno = 0;
+			exit(127);
 			continue;
 		}
 		exec_c(fcommand), free(buf);
