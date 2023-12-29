@@ -33,43 +33,21 @@ void find_path(char **var, int *i, int *j)
   */
 char **get_path(char **env)
 {
-	int i = 0, j = 0, k = 0;
-	char **array, *buf;
+	int i = 0, j = 0;
+	char **array;
 
 	find_path(env, &i, &j);
 	if (i == 0 && j == 0)
 	{
 		return (NULL);
 	}
-	array = malloc(sizeof(char *) * 2);
-	if (array == NULL)
-		return (NULL);
 	j++;
-	buf = strtok(env[i] + j, ":");
-	if (!buf)
+	array = _strtok(env[i] + j, ':');
+	if (!array)
 	{
 		free(array);
 		return (NULL);
 	}
-	array[k++] = strdup(buf);
-	while (1)
-	{
-		buf = strtok(NULL, ":");
-		if (buf)
-		{
-			array[k] = strdup(buf);
-			array = realloc(array, sizeof(char *) * (k + 2));
-			if (array == NULL)
-				return (NULL);
-		}
-		else
-		{
-			array[k] = NULL;
-			break;
-		}
-		k++;
-	}
-	free(buf);
 	return (array);
 }
 /**

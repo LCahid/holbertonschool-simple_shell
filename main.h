@@ -19,5 +19,6 @@ void print_env(void);
 void print_prompt(int status);
 void free_path(void);
 void exec_c(char **fcommand);
+char **_strtok(char *str, char delim);
 
 #endif
