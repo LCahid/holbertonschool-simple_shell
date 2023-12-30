@@ -32,7 +32,7 @@ int main_helper(char **fcommand, int status, char *buf)
 int main(int argc, char **argv, char **env)
 {
 	char **fcommand, *buf, *command;
-	int status, lk = 0, r_code;
+	int status, lk = 0, r_code = 0;
 
 	(void)argc, path_var = get_path(env);
 	while (1)
