@@ -10,8 +10,9 @@ char *find_file(char *command, int *lk)
 	char *temp;
 	struct stat st;
 
-	if (!stat(command, &st))
-		return (command);
+	if (command[0] == '/' || command[0] == '.')
+		if (!stat(command, &st))
+			return (command);
 	if (!path_var)
 		return (NULL);
 	while (path_var[i])

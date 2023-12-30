@@ -18,7 +18,7 @@ char *find_file(char *command, int *);
 void print_env(void);
 void print_prompt(int status);
 void free_path(void);
-void exec_c(char **fcommand);
+int exec_c(char **fcommand);
 char **_strtok(char *str, char delim);
 
 #endif

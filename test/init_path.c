@@ -11,10 +11,12 @@ void find_path(char **var, int *i, int *j)
 	{
 		while (var[*i][*j])
 		{
-			if (var[*i][*j] == '=')
-				return;
 			if (var[*i][*j] == PATH[*j])
+			{
+				if (var[*i][*j] == '=')
+					return;
 				(*j)++;
+			}
 			else
 				break;
 		}
@@ -31,35 +33,21 @@ void find_path(char **var, int *i, int *j)
   */
 char **get_path(char **env)
 {
-	int i = 0, j = 0, k = 0;
-	char **array = malloc(sizeof(char *) * 2), *buf;
+	int i = 0, j = 0;
+	char **array;
 
 	find_path(env, &i, &j);
-	if (!array)
-		return (NULL);
-	if (!i && !j)
-		return (NULL);
-	j++;
-	buf = strtok(env[i] + j, ":");
-	array[k++] = strdup(buf);
-	while (1)
+	if (i == 0 && j == 0)
 	{
-		buf = strtok(NULL, ":");
-		if (buf)
-		{
-			array[k] = strdup(buf);
-			array = realloc(array, sizeof(char *) * (k + 2));
-			if (array == NULL)
-				return (NULL);
-		}
-		else
-		{
-			array[k] = NULL;
-			break;
-		}
-		k++;
+		return (NULL);
 	}
-	free(buf);
+	j++;
+	array = _strtok(env[i] + j, ':');
+	if (!array)
+	{
+		free(array);
+		return (NULL);
+	}
 	return (array);
 }
 /**
@@ -69,6 +57,8 @@ void free_path(void)
 {
 	int i = 0;
 
+	if (!path_var)
+		return;
 	while (path_var[i])
 		free(path_var[i++]);
 	free(path_var);
