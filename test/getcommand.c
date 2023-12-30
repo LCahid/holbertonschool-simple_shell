@@ -27,8 +27,7 @@ char **get_command(char **buf)
 	char **array;
 	size_t n = 1, k, i, l = 0, count;
 
-	*buf = malloc(n);
-	k = getline(buf, &n, stdin);
+	*buf = malloc(n), k = getline(buf, &n, stdin);
 	if (k == (size_t)(-1))
 	{
 		if (errno == 0)
@@ -38,12 +37,15 @@ char **get_command(char **buf)
 	}
 	count = arg_counter(*buf, k);
 	if (!count)
-		return (NULL);
+	{
+		array = malloc(sizeof(char *));
+		array[0] = strdup(" ");
+		return (array);
+	}
 	array = malloc(sizeof(char *) * (count + 1));
 	if (array == NULL)
 	{
-		free(*buf);
-		free(array);
+		free(*buf), free(array);
 		return (NULL);
 	}
 	for (i = 1; i < k; i++)
@@ -57,8 +59,7 @@ char **get_command(char **buf)
 			array[l] = *buf + i - 1;
 			while ((*buf)[i] != ' ' && (*buf)[i] != '\t' && (*buf)[i] != '\n')
 				i++;
-			(*buf)[i] = '\0';
-			l++;
+			(*buf)[i] = '\0', l++;
 		}
 	}
 	array[l] = NULL;
