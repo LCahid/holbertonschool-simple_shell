@@ -8,7 +8,7 @@
 char **_strtok(char *str, char delim)
 {
 	char **array, *start, *end;
-	int i = 0, j = 1;
+	int i = 0, j = 1, f = 0;
 
 	if (str == NULL)
 		return (NULL);
@@ -20,7 +20,7 @@ char **_strtok(char *str, char delim)
 			while (str[i] != delim && str[i])
 				i++;
 			if (j == 1)
-				array = malloc(sizeof(char *) * j);
+				array = malloc(sizeof(char *) * j), f++;
 			else
 				array = realloc(array, sizeof(char *) * j);
 			if (str[i] == '\0')
@@ -39,7 +39,10 @@ char **_strtok(char *str, char delim)
 		}
 		i++;
 	}
-	array = realloc(array, sizeof(char *) * j);
+	if (f == 0)
+		array = malloc(sizeof(char*));
+	else
+		array = realloc(array, sizeof(char *) * j);
 	array[j - 1] = NULL;
 	return (array);
 }
