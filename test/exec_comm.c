@@ -3,13 +3,15 @@
   * exec_c - execute user input
   * @fcommand: user input
   */
-void exec_c(char **fcommand)
+int exec_c(char **fcommand)
 {
 	pid_t pid;
+	int r_code;
 
 	pid = fork();
 	if (pid == 0)
-		execve(fcommand[0], fcommand, environ);
+		r_code = execve(fcommand[0], fcommand, environ);
 	else
-		wait(NULL);
+		wait(&r_code);
+	return (r_code);
 }
