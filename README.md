@@ -1,5 +1,5 @@
 # Basic Shell
-![GIF about codinghttps://i.gifer.com/YnA.gif](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/YnA.gif)
+![GIF about codinghttps://i.gifer.com/YnA.gif](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/gif/YnA.gif)
 
 ## Overview
 Basic Shell is a simple, interactive command line interpreter that provides a user interface to access the operating system's services. It is designed to execute commands and manage your files and processes.
@@ -10,16 +10,16 @@ Basic Shell is a simple, interactive command line interpreter that provides a us
 - **Process Management:** Oversee and control the execution of processes.
 - **Script Execution:** Run simple shell scripts to automate tasks.
 
-##Usage
+## Usage
 
 1.Compile the code:
 ```bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o MyShell
 ```
 
 2.Run the compiled shell:
 ```bash
-./myshell
+./MyShell
 ```
 
 ## Custom Commands
