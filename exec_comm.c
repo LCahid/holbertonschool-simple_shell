@@ -2,6 +2,7 @@
 /**
   * exec_c - execute user input
   * @fcommand: user input
+  * Return: executed commands return code
   */
 int exec_c(char **fcommand)
 {
@@ -12,6 +13,9 @@ int exec_c(char **fcommand)
 	if (pid == 0)
 		r_code = execve(fcommand[0], fcommand, environ);
 	else
+	{
 		wait(&r_code);
+		return (WEXITSTATUS(r_code));
+	}
 	return (r_code);
 }

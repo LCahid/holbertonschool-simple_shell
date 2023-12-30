@@ -56,7 +56,7 @@ int main(int argc, char **argv, char **env)
 		if (!fcommand[0])
 		{
 			dprintf(2, "%s: 1: %s: not found\n", argv[0], command);
-			r_code = 2, free(buf), free(fcommand), free(command), errno = 0;
+			free(buf), free(fcommand), free(command), errno = 0;
 			if (!status)
 				free_path(), exit(127);
 			continue;

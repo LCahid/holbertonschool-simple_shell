@@ -2,6 +2,7 @@
 /**
   * find_file - finds file location in path variables
   * @command: user input
+  * @lk: is the flag for is this command use path or not
   * Return: modified user input
   */
 char *find_file(char *command, int *lk)
