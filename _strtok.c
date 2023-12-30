@@ -40,7 +40,7 @@ char **_strtok(char *str, char delim)
 		i++;
 	}
 	if (f == 0)
-		array = malloc(sizeof(char*));
+		array = malloc(sizeof(char *));
 	else
 		array = realloc(array, sizeof(char *) * j);
 	array[j - 1] = NULL;
