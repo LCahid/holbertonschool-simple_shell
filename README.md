@@ -1,5 +1,5 @@
 # Basic Shell
-<img width="400" height="250" alt="shell" src="https://i.gifer.com/R7iJ.gif"/>
+![](https://i.gifer.com/YnA.gif)
 
 ## Overview
 Basic Shell is a simple, interactive command line interpreter that provides a user interface to access the operating system's services. It is designed to execute commands and manage your files and processes.
@@ -9,6 +9,18 @@ Basic Shell is a simple, interactive command line interpreter that provides a us
 - **File Navigation:** Easily navigate through directories and manage files.
 - **Process Management:** Oversee and control the execution of processes.
 - **Script Execution:** Run simple shell scripts to automate tasks.
+
+##Usage
+
+1.Compile the code:
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+
+2.Run the compiled shell:
+```bash
+./myshell
+```
 
 ## Custom Commands
 
@@ -26,6 +38,14 @@ Contributions are what make the open-source community an amazing place to learn,
 1. Commit your Changes (git commit -m 'Add some AmazingFeature')
 1. Push to the Branch (git push origin feature/AmazingFeature)
 1. Open a Pull Request
+
+## Content of File
+
+|  File          | Description                                       |
+|----------------|---------------------------------------------------|
+| [AUTHORS](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/AUTHORS)           | Contributors in this repository                                 |
+| [man_1_simple_shell](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/man_1_simple_shell)           | Information about our repository                          |
+| [main.h](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/main.h)         | Prototypes functions and headers                          |
 
 ## Authors
 

@@ -1,0 +1,45 @@
+#!/bin/bash
+echo ".\" Manual page for MyShell
+.TH MySHELL 1 "2023-12-30" "Version 1.0.1.1"
+.SH NAME
+ myshell \-a simple command-line interpreter
+.SH SYNOPSIS
+ ./myshell
+.SH DESCRIPTION
+MyShell is a simple UNIX command interpreter that reads commands from the standard input or from a file and executes them. This shell allows you to run programs and scripts, redirect input and output, and chain commands together.
+.B MyShell
+without a script file name to execute commands as needed.
+.SH OPTIONS
+The MyShell does not support options in this version.
+.SH EXIT STATUS
+.B MyShell
+returns last executed commands return value or 0 if shell terminated without using any command.
+.SH EXAMPLES
+.B MyShell:
+.PP
+Executing a single command:
+.PP
+cisfun$ echo "Hello World"
+.RE
+.PP
+.SH ENVIRONMENT
+The execution of scripts by
+.B simple_shell
+might be influenced by the following environment variables:
+.PP
+.HOME
+The home directory of the current user.
+.PP
+.PATH
+A colon-separated list of directories used to find commands.
+.SH FILES
+.I ./MyShell
+Executable for the simple shell.
+.SH AUTHOR
+Jahid Jabizada(mr.cebizade@gmail.com)
+.br
+Gunay Gasimova(gqasimova93@gmail.com)
+" > myshell.1
+mv myshell.1 /usr/local/man/man1/
+gzip -f /usr/local/man/man1/myshell.1
+man myshell
