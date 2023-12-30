@@ -1,5 +1,5 @@
 # Basic Shell
-![GIF about coding](https://i.gifer.com/YnA.gif)
+![GIF about codinghttps://i.gifer.com/YnA.gif](https://github.com/LCahid/holbertonschool-simple_shell/blob/main/YnA.gif)
 
 ## Overview
 Basic Shell is a simple, interactive command line interpreter that provides a user interface to access the operating system's services. It is designed to execute commands and manage your files and processes.
